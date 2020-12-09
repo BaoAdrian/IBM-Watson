@@ -48,15 +48,15 @@ public class IndexEngine {
     }
 
     public StandardAnalyzer getAnalyzer() {
-        return this.analyzer;
+        return analyzer;
     }
 
-    public Directory getIndex() {
-        return this.index;
+    public String getIndexPath() {
+        return dataPath;
     }
 
     public IndexWriter getIndexWriter() {
-        return this.writer;
+        return writer;
     }
 
     /**
@@ -65,7 +65,7 @@ public class IndexEngine {
      *
      * @throws IOException
      */
-    public void parseWikiData() throws IOException {
+    public void buildIndex() throws IOException {
         index = FSDirectory.open(new File(dataPath).toPath());
         config = new IndexWriterConfig(analyzer);
         writer = new IndexWriter(index, config);
@@ -85,10 +85,6 @@ public class IndexEngine {
             parseFile(filePath);
             i++;
         }
-
-        // Processing done, store variables & close objects
-        this.index = index;
-
         writer.close();
         index.close();
     }
@@ -109,11 +105,6 @@ public class IndexEngine {
 
             while (sc.hasNextLine()) {
                 String lineToProcess = sc.nextLine().trim();
-
-                title = "";
-                category = "";
-                header = "";
-                text = "";
 
                 // Pre-processing to extract title & other info
                 if (isTitle(lineToProcess)) {
@@ -247,13 +238,17 @@ public class IndexEngine {
      * @param content Parsed String Content (text + header) from wiki data
      */
     public void addDoc(IndexWriter writer, String title, String category, String content) {
+        // Trim whitespace before processing
+        title = title.trim();
+        category = category.trim();
+        content = content.trim();
 
         // Pre-process params for empty fields
         if (category.isEmpty()) {
-            category = "-";
+            category = ".";
         }
         if (content.isEmpty()) {
-            content = "-";
+            content = ".";
         }
 
         // Use StringBuilders to aggregate terms below
