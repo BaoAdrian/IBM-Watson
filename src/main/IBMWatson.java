@@ -15,24 +15,24 @@ public class IBMWatson {
 
         Scanner sc = new Scanner(System.in);
 
-        String goAgain = "";
+        String goAgain = "y";
         String indexMethod = "";
         String queryMethod = "";
 
         // Continue processing requests until user quits
-        while(!goAgain.equals("n")) {
+        while(goAgain.equals("y")) {
             printBuildMenu();
             indexMethod = sc.next().trim();
 
             printQueryMenu();
             queryMethod = sc.next().trim();
 
-            IndexEngine indexEngine = new IndexEngine(indexMethod);
-            QueryEngine queryEngine = new QueryEngine(indexEngine, queryMethod, indexMethod);
             try {
+                IndexEngine indexEngine = new IndexEngine(indexMethod);
                 System.out.println("Building index...");
-                indexEngine.parseWikiData();
+                indexEngine.buildIndex();
 
+                QueryEngine queryEngine = new QueryEngine(indexEngine, queryMethod, indexMethod);
                 System.out.println("Processing queries...");
                 queryEngine.processQuestions();
 
@@ -59,9 +59,10 @@ public class IBMWatson {
 
     public static void printQueryMenu() {
         System.out.println("\nHow would you like perform queries?");
-        System.out.println(" (1) Boolean");
-        System.out.println(" (2) TF-IDF");
-        System.out.println(" (3) BM25");
+        System.out.println(" (1) BM25");
+        System.out.println(" (2) Boolean");
+        System.out.println(" (3) TF-IDF");
+        System.out.println(" (4) Jelinek Mercer");
         System.out.print("> ");
     }
 }
