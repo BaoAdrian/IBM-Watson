@@ -103,6 +103,38 @@ Follow the steps below to get up and running:
     
     Process finished with exit code 0
     ```
+   
+    OR
+   
+    ```
+    Welcome to IBM Watson Lite!
+    
+    How would you like to build the index?
+     (1) None
+     (2) Use Lemmatization
+     (3) Use Stemming
+    > 3
+    
+    How would you like perform queries?
+     (1) BM25
+     (2) Boolean
+     (3) TF-IDF
+     (4) Jelinek Mercer
+    > 4
+    Building index...
+    
+    Index already exists at: 'index/stemming'
+    If you wish to rebuild index, please delete existing index.
+    
+    Processing queries...
+    Got 26/100 = 0.26
+    Would you like to go again? (y/n)
+    n
+    
+    Terminating program...
+    
+    Process finished with exit code 0
+    ```
  
 # Report
 Full project report & analysis can be found here: [CSC483_IBMWatsonReport_AdrianBao](./CSC483_IBMWatsonReport_AdrianBao.pdf)
