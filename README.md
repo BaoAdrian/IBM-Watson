@@ -35,7 +35,7 @@ Follow the steps below to get up and running:
     ```
    - The above is NOT required if you wish to build the index from scratch
    
-3. Open you favorite IDE & run the driver, `IBMWatson.java`
+3. Open your favorite IDE & run the driver, `IBMWatson.java`
 4. If successful, you should see an execution similar to the following
     ```
     Welcome to IBM Watson Lite!
