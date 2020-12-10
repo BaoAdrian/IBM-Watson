@@ -8,7 +8,7 @@ Follow the steps below to get up and running:
     ```
     $ git clone https://github.com/BaoAdrian/IBM-Watson.git
     ```
-2. (Optional) If you wish to use pre-built indexes, you can downloaded the zipped manifeset here: https://drive.google.com/file/d/1CABlrkPPYIvklZ6HzgijiUYaIRbz9bQ1/view?usp=sharing
+2. (Optional) If you wish to use pre-built indexes, you can download the zipped manifest here: https://drive.google.com/file/d/1CABlrkPPYIvklZ6HzgijiUYaIRbz9bQ1/view?usp=sharing
    - Once downloaded, place zip into the `IBM-Watson` directory & unzip
     ```
     # Enter cloned repo & move zipped manifest
