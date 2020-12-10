@@ -18,6 +18,9 @@ Follow the steps below to get up and running:
     # Unzip
     $ unzip index.zip
    
+    # Delete .zip (no longer needed)
+    $ rm index.zip
+   
     # If done correctly, your directory tree should be something like this
     $ tree -d
     .
