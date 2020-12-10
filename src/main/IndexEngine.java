@@ -7,6 +7,7 @@ import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
 import org.apache.lucene.document.StringField;
 import org.apache.lucene.document.TextField;
+import org.apache.lucene.index.DirectoryReader;
 import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.index.IndexWriterConfig;
 import org.apache.lucene.store.Directory;
@@ -76,14 +77,19 @@ public class IndexEngine {
             dir.mkdir();
         }
 
-        // For files in directory
-        String filePath;
-        int i =0;
-        for(String file : dir.list()) {
-            filePath = "src/resources/" + file;
-            System.out.println(i + " File: " + filePath);
-            parseFile(filePath);
-            i++;
+        if (!DirectoryReader.indexExists(index)) {
+            // For files in directory
+            String filePath;
+            int i =0;
+            for(String file : dir.list()) {
+                filePath = "src/resources/" + file;
+                System.out.println(i + " File: " + filePath);
+                parseFile(filePath);
+                i++;
+            }
+        } else {
+            System.out.println("\nIndex already exists at: '" + dataPath + "'");
+            System.out.println("If you wish to rebuild index, please delete existing index.\n");
         }
         writer.close();
         index.close();
