@@ -34,7 +34,7 @@ Follow the steps below to get up and running:
     ...
     ```
 
-3. If you chose to skip (2), you will need to download the following wiki data and place into the expected directory
+3. If you chose to skip (2), you will need to download the following wiki data and place into the expected directory as the program will expect they exist in order to build the index.
    - Download wiki tar: https://www.dropbox.com/s/nzlb96ejt3lhd7g/wiki-subset-20140602.tar.gz?dl=0
    - Move tarball into the directory expected by the program
       ```
