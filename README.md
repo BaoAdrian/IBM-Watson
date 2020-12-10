@@ -104,7 +104,7 @@ Follow the steps below to get up and running:
     Process finished with exit code 0
     ```
    
-    OR
+    OR (sample execution when index already exists)
    
     ```
     Welcome to IBM Watson Lite!
