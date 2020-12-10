@@ -33,10 +33,45 @@ Follow the steps below to get up and running:
     │   └── resources
     ...
     ```
-   - The above is NOT required if you wish to build the index from scratch
+
+3. If you chose to skip (2), you will need to download the following wiki data and place into the expected directory
+   - Download wiki tar: https://www.dropbox.com/s/nzlb96ejt3lhd7g/wiki-subset-20140602.tar.gz?dl=0
+   - Move tarball into the directory expected by the program
+      ```
+      # Enter cloned repo's src directory
+      $ cd /path/to/IBM-Watson/src
+     
+      # Create resources directory & enter it
+      $ mkdir resources
+      $ cd resources
+     
+      # Move tarball into src/resources & untar it
+      $ mv /path/to/wiki-subset-20140602.tar.gz .
+      $ tar -zxvf wiki-subset-20140602.tar.gz
+     
+      # Remove tarball (no longer needed)
+      $ rm wiki-subset-20140602.tar.gz
+     
+      # If successful, you should see something like the following
+      $ pwd
+      /path/to/IBM-Watson/src
+      $ tree
+      .
+      ├── main
+      │   ├── Constants.java
+      │   ├── IBMWatson.java
+      │   ├── IndexEngine.java
+      │   ├── QueryEngine.java
+      │   └── Result.java
+      ├── resources
+      │   ├── enwiki-20140602-pages-articles.xml-0005.txt
+      │   ├── enwiki-20140602-pages-articles.xml-0006.txt
+      │   ├── enwiki-20140602-pages-articles.xml-0007.txt
+      ... more wiki files from tarball ...
+      ```
    
-3. Open your favorite IDE & run the driver, `IBMWatson.java`
-4. If successful, you should see an execution similar to the following
+4. Open your favorite IDE & run the driver, `IBMWatson.java`
+5. If successful, you should see an execution similar to the following
     ```
     Welcome to IBM Watson Lite!
     
