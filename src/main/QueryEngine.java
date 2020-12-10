@@ -107,6 +107,15 @@ public class QueryEngine {
         }
     }
 
+    /**
+     * Takes in the category & clue of the from questions.txt &
+     * generates a query from them to search the index for possible
+     * matches. Returns list of results from the query.
+     *
+     * @param category Category defined in questions.txt
+     * @param clue Clue defined in questions.txt
+     * @return List of Results (top 10 results with highest similarity scores)
+     */
     private ArrayList<Result> executeQuery(String category, String clue) {
         ArrayList<Result> results = new ArrayList<>();
 
@@ -134,6 +143,13 @@ public class QueryEngine {
         return results;
     }
 
+    /**
+     * Processes questionContent according to the user-specified method
+     * of Stemming, Lemmatization, or neither. Return processed string.
+     *
+     * @param qContent Question content to be utilized as the query
+     * @return Processed query string 
+     */
     private String processQuestionContent(String qContent) {
         StringBuilder sb = new StringBuilder();
 

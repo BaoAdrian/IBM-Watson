@@ -4,11 +4,6 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class IBMWatson {
-    // Optional flags
-    public static boolean useLemma = false;
-    public static boolean useStemming = false;
-    public static boolean useBooleanQuery = false;
-    public static boolean useBM25Query = false;
 
     public static void main(String[] args) {
         System.out.println("Welcome to IBM Watson Lite!\n");
